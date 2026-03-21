@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find C:/Users/USER/Desktop/WORK/book-launch -not -path */node_modules/* -not -path */.next/* -not -path */.git/*)",
+      "Bash(ls:*)",
+      "Bash(yarn add:*)",
+      "Bash(yarn tsc:*)"
+    ]
+  }
+}

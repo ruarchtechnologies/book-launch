@@ -2,16 +2,12 @@
 
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { EmailInput } from "@/components/ui/EmailInput";
 import { siteConfig } from "@/config/site";
-import { useEmailSubmit } from "@/hooks/useEmailSubmit";
 import { fadeUp, staggerContainer } from "@/lib/variants";
 
 export function WaitlistCTA() {
-  const { submit, loading, success, error } = useEmailSubmit();
-
   return (
-    <SectionWrapper id="waitlist" className="bg-gradient-to-br from-primary/10 via-background to-background">
+    <SectionWrapper id="order">
       <motion.div
         variants={staggerContainer()}
         initial="hidden"
@@ -21,24 +17,24 @@ export function WaitlistCTA() {
       >
         <motion.div variants={fadeUp} className="flex flex-col gap-4">
           <h2 className="text-4xl lg:text-6xl font-bold text-foreground">
-            Don&apos;t Miss Launch Day
+            Ready to Begin Your Journey?
           </h2>
-          <p className="text-xl text-muted">{siteConfig.cta.incentive}</p>
+          <p className="text-xl text-muted">
+            Pick up your copy of To The Stars and start exploring what learning can really look like.
+          </p>
         </motion.div>
 
         <motion.div variants={fadeUp}>
-          <EmailInput
-            onSubmit={submit}
-            loading={loading}
-            success={success}
-            error={error ?? undefined}
-            placeholder="Your email address"
-            buttonText={siteConfig.cta.secondary}
-          />
+          <a
+            href={siteConfig.orderUrl}
+            className="inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20 px-8 py-4 text-lg"
+          >
+            {siteConfig.cta.secondary}
+          </a>
         </motion.div>
 
         <motion.p variants={fadeUp} className="text-sm text-subtle">
-          No spam. Unsubscribe anytime. Your email is safe with us.
+          Available in paperback and e-book.
         </motion.p>
       </motion.div>
     </SectionWrapper>

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/cn";
 
@@ -21,6 +20,14 @@ export function Navbar() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
+
+  const navLinks = [
+    { label: "About the Book", id: "about-book" },
+    { label: "The Author", id: "about" },
+    { label: "Chapters", id: "chapters" },
+    { label: "Reviews", id: "testimonials" },
+    { label: "FAQ", id: "faq" },
+  ];
 
   return (
     <motion.nav
@@ -53,33 +60,21 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-8">
-          <button
-            onClick={() => scrollTo("about")}
-            className="text-muted hover:text-foreground transition-colors text-sm"
+          {navLinks.map(({ label, id }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              className="text-muted hover:text-foreground transition-colors text-sm"
+            >
+              {label}
+            </button>
+          ))}
+          <a
+            href={siteConfig.orderUrl}
+            className="inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20 px-3 py-1.5 text-sm"
           >
-            About
-          </button>
-          <button
-            onClick={() => scrollTo("chapters")}
-            className="text-muted hover:text-foreground transition-colors text-sm"
-          >
-            Chapters
-          </button>
-          <button
-            onClick={() => scrollTo("testimonials")}
-            className="text-muted hover:text-foreground transition-colors text-sm"
-          >
-            Reviews
-          </button>
-          <button
-            onClick={() => scrollTo("faq")}
-            className="text-muted hover:text-foreground transition-colors text-sm"
-          >
-            FAQ
-          </button>
-          <Button size="sm" onClick={() => scrollTo("waitlist")}>
             {siteConfig.cta.hero}
-          </Button>
+          </a>
         </div>
       </div>
 
@@ -90,12 +85,7 @@ export function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="lg:hidden mt-4 pb-4 flex flex-col gap-4 border-t border-border pt-4"
         >
-          {[
-            { label: "About", id: "about" },
-            { label: "Chapters", id: "chapters" },
-            { label: "Reviews", id: "testimonials" },
-            { label: "FAQ", id: "faq" },
-          ].map(({ label, id }) => (
+          {navLinks.map(({ label, id }) => (
             <button
               key={id}
               onClick={() => scrollTo(id)}
@@ -104,9 +94,12 @@ export function Navbar() {
               {label}
             </button>
           ))}
-          <Button size="sm" className="self-start" onClick={() => scrollTo("waitlist")}>
+          <a
+            href={siteConfig.orderUrl}
+            className="self-start inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20 px-3 py-1.5 text-sm"
+          >
             {siteConfig.cta.hero}
-          </Button>
+          </a>
         </motion.div>
       )}
     </motion.nav>

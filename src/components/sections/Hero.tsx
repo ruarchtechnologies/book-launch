@@ -3,26 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { EmailInput } from "@/components/ui/EmailInput";
-import { Badge } from "@/components/ui/Badge";
 import { fadeUp, staggerContainer } from "@/lib/variants";
-import { useEmailSubmit } from "@/hooks/useEmailSubmit";
 
 export function Hero() {
-  const { submit, loading, success, error } = useEmailSubmit();
-
-  const launchDate = new Date(siteConfig.book.launchDate).toLocaleDateString(
-    "en-US",
-    { month: "long", year: "numeric" }
-  );
-
   return (
-    <section className="relative min-h-screen flex items-center bg-background py-32 px-6 overflow-hidden">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="relative min-h-screen flex items-center py-32 px-6 overflow-hidden">
+<div className="max-w-[72rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Text column */}
         <motion.div
           variants={staggerContainer()}
@@ -30,10 +16,6 @@ export function Hero() {
           animate="visible"
           className="flex flex-col gap-6"
         >
-          <motion.div variants={fadeUp}>
-            <Badge>Coming {launchDate}</Badge>
-          </motion.div>
-
           <motion.h1
             variants={fadeUp}
             className="text-5xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight"
@@ -49,23 +31,13 @@ export function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp}>
-            <EmailInput
-              onSubmit={submit}
-              loading={loading}
-              success={success}
-              error={error ?? undefined}
-              placeholder="Enter your email"
-              buttonText={siteConfig.cta.hero}
-            />
+            <a
+              href={siteConfig.orderUrl}
+              className="inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20 px-8 py-4 text-lg"
+            >
+              {siteConfig.cta.hero}
+            </a>
           </motion.div>
-
-          <motion.p variants={fadeUp} className="text-sm text-subtle">
-            <span className="text-foreground font-semibold">
-              {siteConfig.stats[2].value}
-              {siteConfig.stats[2].suffix}
-            </span>{" "}
-            people on the waitlist &middot; {siteConfig.cta.incentive}
-          </motion.p>
         </motion.div>
 
         {/* Book cover column */}

@@ -7,21 +7,21 @@ import { fadeUp, staggerContainer } from "@/lib/variants";
 const statements = [
   {
     number: "01",
-    text: "You're overwhelmed by information but starving for wisdom.",
+    text: "You have sat in class wondering why learning feels much smaller than your curiosity.",
   },
   {
     number: "02",
-    text: "The advice you've been given was designed for someone else's life.",
+    text: "You've been told what to learn, what success looks like, and what path to follow — but deep down, you're still asking questions no one seems to answer.",
   },
   {
     number: "03",
-    text: "You know something needs to change — you just don't know where to start.",
+    text: "You want to explore your interests, solve problems, create things, or make a difference, but you're not sure where to begin.",
   },
 ];
 
 export function ProblemHook() {
   return (
-    <SectionWrapper>
+    <SectionWrapper id="about-book">
       <motion.div
         variants={staggerContainer(0.15)}
         initial="hidden"

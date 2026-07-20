@@ -18,9 +18,9 @@ export function Button({
       className={cn(
         "inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
         {
-          "bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20":
+          "bg-foreground hover:bg-foreground/90 text-ink shadow-lg shadow-black/30":
             variant === "primary",
-          "bg-transparent border border-border hover:border-muted text-foreground hover:text-foreground":
+          "bg-transparent border border-border hover:border-foreground/40 text-foreground":
             variant === "ghost",
           "px-3 py-1.5 text-sm": size === "sm",
           "px-5 py-2.5 text-base": size === "md",

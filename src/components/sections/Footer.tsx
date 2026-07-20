@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 
 export function Footer() {
@@ -8,11 +9,22 @@ export function Footer() {
       <div className="max-w-[72rem] mx-auto flex flex-col gap-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           {/* Brand */}
-          <div className="flex flex-col gap-1">
-            <p className="text-foreground font-bold text-lg">
-              {siteConfig.book.title}
-            </p>
-            <p className="text-sm text-subtle">by {siteConfig.author.name}</p>
+          <div className="flex items-center gap-4">
+            <Image
+              src={siteConfig.author.photo}
+              alt={siteConfig.author.name}
+              width={48}
+              height={48}
+              className="rounded-full object-cover shrink-0"
+            />
+            <div className="flex flex-col gap-1">
+              <p className="font-display text-2xl text-foreground">
+                {siteConfig.book.title}
+              </p>
+              <p className="text-sm text-subtle">
+                by {siteConfig.author.name}
+              </p>
+            </div>
           </div>
 
           {/* Nav links */}

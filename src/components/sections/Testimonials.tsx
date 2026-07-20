@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { siteConfig } from "@/config/site";
-import { fadeUp, staggerContainer, scaleIn } from "@/lib/variants";
+import { fadeUp, staggerContainer } from "@/lib/variants";
 import { cn } from "@/lib/cn";
 
 export function Testimonials() {
@@ -55,22 +54,13 @@ export function Testimonials() {
               <blockquote className="text-xl lg:text-2xl text-foreground leading-relaxed mb-8 font-medium">
                 &ldquo;{testimonials[activeIndex].quote}&rdquo;
               </blockquote>
-              <div className="flex items-center gap-4">
-                <Image
-                  src={testimonials[activeIndex].photo}
-                  alt={testimonials[activeIndex].name}
-                  width={52}
-                  height={52}
-                  className="rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-semibold text-foreground">
-                    {testimonials[activeIndex].name}
-                  </p>
-                  <p className="text-sm text-muted">
-                    {testimonials[activeIndex].title}
-                  </p>
-                </div>
+              <div>
+                <p className="font-semibold text-foreground">
+                  {testimonials[activeIndex].name}
+                </p>
+                <p className="text-sm text-muted">
+                  {testimonials[activeIndex].title}
+                </p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -90,36 +80,6 @@ export function Testimonials() {
             ))}
           </div>
         </motion.div>
-
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <motion.div
-              key={t.name}
-              variants={scaleIn}
-              className="bg-surface rounded-xl p-6 border border-border flex flex-col gap-4"
-            >
-              <blockquote className="text-sm text-muted leading-relaxed flex-1">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="flex items-center gap-3">
-                <Image
-                  src={t.photo}
-                  alt={t.name}
-                  width={36}
-                  height={36}
-                  className="rounded-full object-cover"
-                />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">
-                    {t.name}
-                  </p>
-                  <p className="text-xs text-muted">{t.title}</p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </motion.div>
     </SectionWrapper>
   );

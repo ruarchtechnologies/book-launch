@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { siteConfig } from "@/config/site";
 import { fadeUp, staggerContainer, scaleIn } from "@/lib/variants";
@@ -33,20 +32,11 @@ export function Contributors() {
               className="bg-surface-raised rounded-2xl border border-border flex flex-col overflow-hidden"
             >
               {/* Profile */}
-              <div className="flex items-center gap-4 p-6">
-                <Image
-                  src={c.photo}
-                  alt={c.name}
-                  width={64}
-                  height={64}
-                  className="rounded-full object-cover shrink-0 ring-2 ring-border"
-                />
-                <div>
-                  <p className="font-semibold text-foreground text-lg leading-snug">
-                    {c.name}
-                  </p>
-                  <p className="text-sm text-muted mt-0.5">{c.role}</p>
-                </div>
+              <div className="p-6">
+                <p className="font-semibold text-foreground text-lg leading-snug">
+                  {c.name}
+                </p>
+                <p className="text-sm text-muted mt-0.5">{c.role}</p>
               </div>
 
               {/* Divider */}

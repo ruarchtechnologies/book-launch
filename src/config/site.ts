@@ -7,14 +7,14 @@ export const siteConfig = {
       "A letter from one young person to another about courage, learning, service, faith, and the pursuit of a meaningful life.",
     description:
       "To The Stars is a collection of stories, conversations, reflections, and lessons from young people who chose to learn beyond what was expected of them. It is for students who want to understand themselves better, think more deeply about education, and discover what becomes possible when learning extends beyond the school gate.",
-    coverImage: "/images/book-cover.png",
+    coverImage: "/images/book_cover.png",
     launchDate: "2025-09-01",
   },
 
   orderUrl: "#", // ← Replace with actual purchase link (Amazon, Selar, publisher site, etc.)
 
   author: {
-    name: "Author Full Name", // ← To be updated
+    name: "Tomi Oluyamo",
     title: "Author & Educator", // ← To be updated
     bio: [
       "First paragraph about the author — their background, achievements, and why they are uniquely positioned to write this book.", // ← To be updated

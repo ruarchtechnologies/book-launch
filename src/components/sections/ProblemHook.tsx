@@ -33,7 +33,7 @@ export function ProblemHook() {
           variants={fadeUp}
           className="text-3xl lg:text-5xl font-bold text-foreground text-center"
         >
-          If any of this sounds familiar…
+          Do any of these sound familiar…
         </motion.h2>
 
         {statements.map((s) => (

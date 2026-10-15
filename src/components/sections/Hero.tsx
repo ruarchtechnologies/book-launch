@@ -73,8 +73,8 @@ export function Hero() {
               src={siteConfig.book.coverImage}
               alt={siteConfig.book.title}
               width={380}
-              height={520}
-              className="relative rounded-xl shadow-2xl shadow-black/40"
+              height={584}
+              className="relative rounded-xl shadow-2xl shadow-black/40 h-auto"
               priority
             />
           </motion.div>

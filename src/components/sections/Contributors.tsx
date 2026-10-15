@@ -27,7 +27,7 @@ export function Contributors() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {siteConfig.contributors.map((c) => (
             <motion.div
-              key={c.name}
+              key={c.photo}
               variants={scaleIn}
               className="bg-surface-raised rounded-2xl border border-border flex flex-col overflow-hidden"
             >

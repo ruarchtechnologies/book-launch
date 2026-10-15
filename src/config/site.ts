@@ -6,7 +6,7 @@ export const siteConfig = {
     subtitle:
       "A letter from one young person to another about courage, learning, service, faith, and the pursuit of a meaningful life.",
     description:
-      "To The Stars is a collection of stories, conversations, reflections, and lessons from young people who chose to learn beyond what was expected of them. It is for students who want to understand themselves better, think more deeply about education, and discover what becomes possible when learning extends beyond the school gate.",
+      "To The Stars is a journey through stories, conversations, reflections, and lessons from young people who chose to learn beyond what was expected of them. It is for students who want to understand themselves better, think more deeply about education, and discover what becomes possible when learning extends beyond the school gate.",
     coverImage: "/images/book_cover.png",
     launchDate: "2025-09-01",
   },
@@ -20,7 +20,7 @@ export const siteConfig = {
       "First paragraph about the author — their background, achievements, and why they are uniquely positioned to write this book.", // ← To be updated
       "Second paragraph — what drove them to write it, and the transformation it created in their own life.", // ← To be updated
     ],
-    photo: "/images/author.jpg",
+    photo: "/images/Tomi.jpg",
     credentials: ["Educator", "Speaker", "Youth Advocate"], // ← To be updated
     social: {
       twitter: "",
@@ -125,7 +125,7 @@ export const siteConfig = {
     {
       question: "What makes this book different from other student guides?",
       answer:
-        "It is not a textbook or a how-to manual. It is a collection of real stories, conversations, and reflections from young people who chose to engage more deeply with their education. It is written by a young person, for young people.",
+        "It is not a textbook or a how-to manual. It is a journey through real stories, conversations, reflections, and lessons from young people who chose to learn beyond what was expected of them. It is written by a young person, for young people.",
     },
     {
       question: "What topics does the book cover?",

@@ -23,9 +23,11 @@ export function AboutAuthor() {
           <Image
             src={siteConfig.author.photo}
             alt={siteConfig.author.name}
-            width={480}
-            height={580}
-            className="relative rounded-2xl w-full object-cover"
+            width={1620}
+            height={1264}
+            quality={100}
+            sizes="(min-width: 1024px) 560px, 100vw"
+            className="relative rounded-2xl w-full h-auto"
           />
         </motion.div>
 

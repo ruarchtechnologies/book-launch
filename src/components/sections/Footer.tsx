@@ -11,11 +11,11 @@ export function Footer() {
           {/* Brand */}
           <div className="flex items-center gap-4">
             <Image
-              src={siteConfig.author.photo}
-              alt={siteConfig.author.name}
+              src={siteConfig.book.coverImage}
+              alt={siteConfig.book.title}
               width={48}
-              height={48}
-              className="rounded-full object-cover shrink-0"
+              height={74}
+              className="rounded-sm shrink-0 h-auto"
             />
             <div className="flex flex-col gap-1">
               <p className="font-display text-2xl text-foreground">

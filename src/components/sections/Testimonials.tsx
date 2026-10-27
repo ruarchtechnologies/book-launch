@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { StarMark } from "@/components/ui/StarMark";
 import { siteConfig } from "@/config/site";
 import { fadeUp, staggerContainer } from "@/lib/variants";
 import { cn } from "@/lib/cn";
@@ -20,6 +21,8 @@ export function Testimonials() {
     return () => clearInterval(timer);
   }, [paused, testimonials.length]);
 
+  const active = testimonials[activeIndex];
+
   return (
     <SectionWrapper dark id="testimonials">
       <motion.div
@@ -29,56 +32,64 @@ export function Testimonials() {
         viewport={{ once: true, amount: 0.2 }}
         className="flex flex-col gap-12"
       >
-        <motion.div variants={fadeUp} className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl lg:text-6xl font-bold text-foreground">
+        <motion.div variants={fadeUp} className="text-center flex flex-col gap-3">
+          <p className="text-sm font-semibold text-primary uppercase tracking-[0.2em]">
+            Early praise
+          </p>
+          <h2 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight text-balance">
             What People Are Saying
           </h2>
         </motion.div>
 
-        {/* Featured carousel */}
         <motion.div
           variants={fadeUp}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
-          className="relative"
+          className="max-w-4xl mx-auto w-full"
         >
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.figure
               key={activeIndex}
               initial={{ opacity: 0, x: 32 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -32 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-surface-raised rounded-2xl p-8 lg:p-12 border border-border"
+              className="card relative px-8 py-12 lg:px-16 lg:py-16 text-center flex flex-col items-center gap-8 overflow-hidden"
             >
-              <blockquote className="text-xl lg:text-2xl text-foreground leading-relaxed mb-8 font-medium">
-                &ldquo;{testimonials[activeIndex].quote}&rdquo;
+              <span
+                aria-hidden
+                className="absolute -top-6 left-6 font-display text-[10rem] leading-none text-primary/10 select-none"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="relative text-2xl lg:text-3xl text-foreground leading-snug font-medium text-balance">
+                &ldquo;{active.quote}&rdquo;
               </blockquote>
-              <div>
-                <p className="font-semibold text-foreground">
-                  {testimonials[activeIndex].name}
-                </p>
-                <p className="text-sm text-muted">
-                  {testimonials[activeIndex].title}
-                </p>
-              </div>
-            </motion.div>
+              <figcaption className="flex flex-col items-center gap-3">
+                <StarMark />
+                <div>
+                  <p className="font-semibold text-foreground">{active.name}</p>
+                  <p className="text-sm text-subtle">{active.title}</p>
+                </div>
+              </figcaption>
+            </motion.figure>
           </AnimatePresence>
 
-          {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  i === activeIndex ? "bg-primary w-6" : "bg-border w-2"
-                )}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
+          {testimonials.length > 1 && (
+            <div className="flex justify-center gap-2 mt-6">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  className={cn(
+                    "h-2 rounded-full transition-all duration-300",
+                    i === activeIndex ? "bg-primary w-6" : "bg-border w-2"
+                  )}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </SectionWrapper>

@@ -21,7 +21,7 @@ function FAQRow({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-border last:border-b-0">
+    <div className="border-b border-foreground/10 last:border-b-0">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-6 text-left gap-4 group"
@@ -75,7 +75,7 @@ export function FAQ() {
 
         <motion.div
           variants={fadeUp}
-          className="rounded-2xl border border-border bg-surface overflow-hidden divide-y divide-border px-8"
+          className="card overflow-hidden px-6 lg:px-8"
         >
           {siteConfig.faq.map((item, i) => (
             <FAQRow

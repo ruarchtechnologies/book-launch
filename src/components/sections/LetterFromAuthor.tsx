@@ -33,24 +33,29 @@ export function LetterFromAuthor() {
             A different school. A different country. A different opportunity.
           </p>
           <p>
-            Over time, I discovered that while places matter, the most important questions travel with us.
+            Over time, I discovered that while places matter, the most important questions dwell in us.
           </p>
         </motion.div>
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-col gap-3 py-6 px-8 rounded-2xl border border-border bg-surface-raised"
+          className="card flex flex-col divide-y divide-foreground/10 px-8 py-2"
         >
           {questions.map((q) => (
-            <p key={q} className="text-xl font-semibold text-foreground">
+            <p key={q} className="text-xl lg:text-2xl font-semibold text-foreground tracking-tight py-4">
               {q}
             </p>
           ))}
         </motion.div>
 
         <motion.p variants={fadeUp} className="text-lg text-muted leading-relaxed">
+          More profoundly, I realised that the questions were being asked on a weak foundation,
+          in terms of, &ldquo;what am I building?&rdquo;, instead of, &ldquo;to what am I building?&rdquo;
+        </motion.p>
+
+        <motion.p variants={fadeUp} className="text-lg text-muted leading-relaxed">
           <em>To The Stars</em> is an invitation to explore those questions for yourself.
-          And perhaps, along the way, discover just how far learning can take you.
+          And perhaps, along the way, discover just how far this question can take you.
         </motion.p>
       </motion.div>
     </SectionWrapper>

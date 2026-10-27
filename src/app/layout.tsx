@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Pacifico } from "next/font/google";
+import { DM_Sans, Pacifico } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -45,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${pacifico.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body
